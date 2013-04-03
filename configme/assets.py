@@ -157,9 +157,8 @@ class AssetManager(object):
             # create the top level folder
             _os_makedirs(folder_path)
         except EnvironmentError as err:
-            msg = "[Errno %d] %s: '%s'" \
-                % (err.errno, err.strerror, err.filename)
-            raise LocationCreationError(msg)
+            # someone already created folder, it's OK
+            pass
 
         return folder_path
 
